@@ -18,7 +18,10 @@
 
         <li class="menu__item mode new">
           <i class="menu__icon new-icon"></i>
-          <span class="menu__item-title">Upload</span>
+          <label class="menu__item-title fileContainer" >Upload
+          <input type="file" id="fileInput">
+          </label>
+          <!--<span class="menu__item-title">Upload</span>-->
         </li>
 
         <li class="menu__item mode comments" data-state="">
@@ -54,11 +57,13 @@
         </li>
         <li class="menu__item tool share-tools">
             <input class="menu__url" type="text" value="http://2mlfg4vp">
-            <input class="menu_copy" type="button" value="Копировать">
+            <input class="menu_copy" type="button" value="Copy">
         </li>
       </ul>
 
-      <img class="current-image" src="./pic/image.jpg">
+      <div id="filesInfo"></div>
+
+     <!-- <img class="current-image" src="./pic/image.jpg">-->
 
     </div>
   </body>
