@@ -196,7 +196,7 @@ body {
 }
 
 .comments-tools:after, .draw-tools:after, .share-tools:after {
-  content: url(../i/triangle.png);
+  /*content: url(../i/triangle.png);*/
   position: absolute;
   top: 2.6rem;
   left: -0.7rem;
