@@ -101,13 +101,20 @@ body {
 }
 
 .current-image {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   display: block;
   box-shadow: 1px 1.732px 10px #000000;
+  cursor: crosshair;
 }
+
+/*.canvas {
+  position: absolute;
+  top: 29%;
+  left: 34%;
+}*/
 
 /* ~~~~~~~~~~~~~~~~~~~~~~~~~~ иконки на панели ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
