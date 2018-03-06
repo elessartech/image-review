@@ -58,10 +58,10 @@ body {
   height: 100%;
 }
 
-.menu__item:hover {
+/*.menu__item:hover {
   color: #fff;
 }
-
+*/
 .menu__item_active {
   background-color: #51606e;
 }
@@ -116,7 +116,7 @@ body {
   left: 34%;
 }*/
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ иконки на панели ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ icons on the panel ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .drag {
   width: 21px;
@@ -220,7 +220,7 @@ body {
 }
 
 
-/* ~~~~~~~~~~~~~~~~~~~~~~ панели инструментов ~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~ tool panel ~~~~~~~~~~~~~~~~~~~~~ */
 
 .comments-tools, .draw-tools, .share-tools {
   border-left: 0.1rem solid #51606e;
@@ -241,7 +241,7 @@ body {
   vertical-align: middle;
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ рисование ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ drawing ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .draw-tools {
   padding-right: 0;
@@ -313,20 +313,24 @@ body {
   height: 100%;
   width: 5.7rem;
   padding-right: 0.4rem;
-  background-color: #51606e;
+  /*background-color: #51606e;*/
 }
 
 .menu__eraser {
   position: relative;
   width: 2.4rem;
   height: 2.5rem;
-  background-image: url(../i/spritesheet.png);
-  background-position: -110px 62px;
+  /*background-image: url(../i/spritesheet.png);
+  background-position: -110px 62px;*/
 }
 
-.menu__eraser-wrap:hover .menu__eraser {
-  background-position: -110px 37px;
+.menu__eraser:hover {
+  color: #ffffff;
 }
+
+/*.menu__eraser-wrap:hover .menu__eraser {
+  background-position: -110px 37px;
+}*/
 
 .menu__eraser-wrap:before {
   content: '';
@@ -364,11 +368,11 @@ body {
   background-color: #51606e;
 }
 
-.menu__eraser-wrap_active .menu__eraser {
+/*.menu__eraser-wrap_active .menu__eraser {
   background-position: -110px 37px;
-}
+}*/
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~ комментировать ~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~ comment ~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .comments-tools {
   width: 24.2rem;
@@ -457,7 +461,7 @@ body {
 }
 
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ поделиться ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ share ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
 
 .menu__url {
   width: 32.8rem;
@@ -485,43 +489,8 @@ body {
   background-color: #5f7488;
 }
 
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ переключения ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ initial ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-.menu[data-state="initial"] > .menu__item {
-  display: none;
-}
-
-.menu[data-state="initial"] > .menu__item.drag, .menu[data-state="initial"] > .menu__item.new, .menu[data-state="initial"] > .menu__item.burger {
-  display: inline-block;
-}
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ default ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-.menu[data-state="default"] > .menu__item.burger {
-  display: none;
-}
-
-.menu[data-state="default"] > .mode {
-  display: inline-block;
-}
-
-.menu[data-state="default"] > .tools {
-  display: none;
-}
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ selected ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
-
-.menu[data-state="selected"] > .mode {
-  display: none;
-}
-
 .tool {
   display: none;
 }
 
-.menu[data-state="selected"] > .menu__item[data-state="selected"], .menu__item[data-state="selected"] + .tool {
-  display: inline-block;
-}
 
