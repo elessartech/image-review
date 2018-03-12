@@ -94,8 +94,6 @@ body {
     top: 0;
 }
 
-/* Example stylistic flourishes */
-
 .fileContainer [type=file] {
     cursor: pointer;
 }
@@ -110,13 +108,7 @@ body {
   cursor: crosshair;
 }
 
-/*.canvas {
-  position: absolute;
-  top: 29%;
-  left: 34%;
-}*/
-
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ icons on the panel ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* icons on the panel */
 
 .drag {
   width: 21px;
@@ -220,7 +212,7 @@ body {
 }
 
 
-/* ~~~~~~~~~~~~~~~~~~~~~~ tool panel ~~~~~~~~~~~~~~~~~~~~~ */
+/* tool panel */
 
 .comments-tools, .draw-tools, .share-tools {
   border-left: 0.1rem solid #51606e;
@@ -229,7 +221,6 @@ body {
 }
 
 .comments-tools:after, .draw-tools:after, .share-tools:after {
-  /*content: url(../i/triangle.png);*/
   position: absolute;
   top: 2.6rem;
   left: -0.7rem;
@@ -241,7 +232,7 @@ body {
   vertical-align: middle;
 }
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ drawing ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* drawing */
 
 .draw-tools {
   padding-right: 0;
@@ -372,7 +363,7 @@ body {
   background-position: -110px 37px;
 }*/
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~ comment ~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* comment */
 
 .comments-tools {
   width: 24.2rem;
@@ -461,7 +452,7 @@ body {
 }
 
 
-/* ~~~~~~~~~~~~~~~~~~~~~~~~~~ share ~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* share  */
 
 .menu__url {
   width: 32.8rem;
