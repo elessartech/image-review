@@ -209,10 +209,60 @@ const drawLine = event => {
         [x, y] = [newX, newY];
     }
 };
-paintCanvas.addEventListener( 'mousedown', startDrawing );
-paintCanvas.addEventListener( 'mousemove', drawLine );
-paintCanvas.addEventListener( 'mouseup', stopDrawing );
-paintCanvas.addEventListener( 'mouseout', stopDrawing );
+
+function addDataState(el) {
+    if (el.hasAttribute('data-state')) {
+        if (el.dataset.state.slice(0, 3) == 'not') {
+            if (el.classList.contains('draw')) {
+                el.dataset.state = 'drawingMode';
+                turnOnDrawing();
+
+            }
+            else if (el.classList.contains('comments')) {
+                el.dataset.state = 'commentingMode';
+            }
+        }
+        }
+    else {
+        return false;
+    }
+}
+
+function removeDataState(el) {
+    const liEls = document.querySelectorAll('li');
+    let arrayOfLiEls = [];
+    for (li of liEls) {
+            if (li.hasAttribute('data-state')) {
+                arrayOfLiEls.push(li);
+            }
+        }
+        for (state of arrayOfLiEls) {
+            if (state.classList.contains('draw')) {
+            state.dataset.state = 'notDrawingMode';
+            turnOffDrawing();
+        }
+        else if (state.classList.contains('comments')) {
+            state.dataset.state = 'notCommentingMode';
+        }
+    } 
+}
+
+function turnOnDrawing() {
+    paintCanvas.addEventListener( 'mousedown', startDrawing );
+    paintCanvas.addEventListener( 'mousemove', drawLine );
+    paintCanvas.addEventListener( 'mouseup', stopDrawing );
+    paintCanvas.addEventListener( 'mouseout', stopDrawing );
+}
+
+function turnOffDrawing() {
+    paintCanvas.removeEventListener( 'mousedown', startDrawing );
+    paintCanvas.removeEventListener( 'mousemove', drawLine );
+    paintCanvas.removeEventListener( 'mouseup', stopDrawing );
+    paintCanvas.removeEventListener( 'mouseout', stopDrawing );
+}
+    
+
+
 
 
 

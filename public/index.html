@@ -14,7 +14,7 @@
       <ul class="menu">
         <li class="menu__item drag"></li>
 
-        <li class="menu__item burger">
+        <li class="menu__item burger" onclick="removeDataState()" data-state="">
           <i class="burger-icon"></i>
         </li>
 
@@ -25,7 +25,7 @@
           </label>
         </li>
 
-        <li class="menu__item mode comments" data-state="">
+        <li class="menu__item mode comments" data-state="notCommentingMode" onclick="addDataState(this)">
           <i class="menu__icon comments-icon"></i>
           <span class="menu__item-title">Comments</span>
         </li>
@@ -37,7 +37,7 @@
           </span>
         </li>
 
-        <li class="menu__item mode draw" data-state="">
+        <li class="menu__item mode draw" data-state="notDrawingMode" onclick="addDataState(this)">
           <i class="menu__icon draw-icon"></i>
           <span class="menu__item-title">Draw</span>
         </li>
