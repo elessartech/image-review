@@ -14,7 +14,7 @@
       <ul class="menu">
         <li class="menu__item drag"></li>
 
-        <li class="menu__item burger" onclick="removeDataState()" data-state="">
+        <li class="menu__item burger" onclick="removeDrawingDataState()" data-state="">
           <i class="burger-icon"></i>
         </li>
 
@@ -25,14 +25,14 @@
           </label>
         </li>
 
-        <li class="menu__item mode comments" data-state="notCommentingMode" onclick="addDataState(this)">
+        <li class="menu__item mode comments" data-state="comentingMode">
           <i class="menu__icon comments-icon"></i>
           <span class="menu__item-title">Comments</span>
         </li>
         <li class="menu__item tool comments-tools">
           <span class="menu__toggle-bg">
-            <input class="menu__toggle" type="radio" name="toggle" value="on" id="comments-on" checked><label class="menu__toggle-title menu__toggle-title_on" for="comments-on">Show<br>comments</label>
-            <input class="menu__toggle" type="radio" name="toggle" value="off" id="comments-off"><label class="menu__toggle-title menu__toggle-title_off" for="comments-off">Hide<br>comments</label>
+            <input class="menu__toggle" type="radio" name="toggle" value="on" onchange="addCommentsDataState(this)" id="comments-on" checked><label class="menu__toggle-title menu__toggle-title_on" for="comments-on">Show<br>comments</label>
+            <input class="menu__toggle" type="radio" name="toggle" value="off" onchange="addCommentsDataState(this)" id="comments-off"><label class="menu__toggle-title menu__toggle-title_off" for="comments-off">Hide<br>comments</label>
             <span class="menu__toggle-bttn"></span>
           </span>
         </li>

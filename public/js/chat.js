@@ -6,7 +6,6 @@ var message = document.getElementById('chat-comment-textarea'),
       handle = document.getElementById('chat-comment-handle'),
       btn = document.getElementById('send'),
       output = document.getElementById('chat-messages');
-//      feedback = document.getElementById('feedback');
 
 // Emit events
 btn.addEventListener('click', function(){
@@ -20,6 +19,7 @@ btn.addEventListener('click', function(){
 
 // Listen for events
 socket.on('chat', function(data){
+    if (data.message.replace(/ /g,'').length < 35)
     output.innerHTML += '<li class="chat-message"><h1>' + data.handle + ': </h1>' + '<p>' + data.message + '</p>' + '</li>';
 });
 

@@ -210,25 +210,43 @@ const drawLine = event => {
     }
 };
 
+const commentsDiv = document.querySelector('.chat-wrap');
+
+function switchCommentsMode() {
+    if (commentsDiv.dataset.state == 'comentingMode') {
+        commentsDiv.style.display = 'block';
+    }
+    else {
+        commentsDiv.style.display = 'none';
+    }
+}
+
+function addCommentsDataState(el) {
+    if (el.value == 'on') {
+        commentsDiv.dataset.state = 'comentingMode';
+        switchCommentsMode();
+    }
+    else if (el.value == 'off') {
+        commentsDiv.dataset.state = 'notComentingMode';
+        switchCommentsMode();
+    }
+}
+
 function addDataState(el) {
     if (el.hasAttribute('data-state')) {
         if (el.dataset.state.slice(0, 3) == 'not') {
             if (el.classList.contains('draw')) {
                 el.dataset.state = 'drawingMode';
                 turnOnDrawing();
-
-            }
-            else if (el.classList.contains('comments')) {
-                el.dataset.state = 'commentingMode';
             }
         }
-        }
+    }
     else {
         return false;
     }
 }
 
-function removeDataState(el) {
+function removeDrawingDataState(el) {
     const liEls = document.querySelectorAll('li');
     let arrayOfLiEls = [];
     for (li of liEls) {
@@ -240,9 +258,6 @@ function removeDataState(el) {
             if (state.classList.contains('draw')) {
             state.dataset.state = 'notDrawingMode';
             turnOffDrawing();
-        }
-        else if (state.classList.contains('comments')) {
-            state.dataset.state = 'notCommentingMode';
         }
     } 
 }
@@ -260,6 +275,8 @@ function turnOffDrawing() {
     paintCanvas.removeEventListener( 'mouseup', stopDrawing );
     paintCanvas.removeEventListener( 'mouseout', stopDrawing );
 }
+
+
     
 
 

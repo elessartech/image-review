@@ -18,7 +18,6 @@ io.on('connection', (socket) => {
 
     // Handle chat event
     socket.on('chat', function(data){
-        console.log(data);
         io.sockets.emit('chat', data);
     });
 
