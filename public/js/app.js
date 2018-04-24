@@ -27,6 +27,19 @@ const dragStart = event => {
     }
 };
 
+const throttle = (callback) => {
+    let isWaiting = false;
+    return function () {
+        if (!isWaiting) {
+            callback.apply(this, arguments);
+            isWaiting = true;
+            requestAnimationFrame(() => {
+                isWaiting = false;
+            });
+        }
+    };
+}
+
 const drag = throttle((x, y) => {
     if (movedPiece) {
         x = x - shiftX;
@@ -61,20 +74,6 @@ document.addEventListener('touchend', event => drop(event.changedTouches[0]));
 
 
 
-function throttle(callback) {
-    let isWaiting = false;
-    return function () {
-        if (!isWaiting) {
-            callback.apply(this, arguments);
-            isWaiting = true;
-            requestAnimationFrame(() => {
-                isWaiting = false;
-            });
-        }
-    };
-}
-
-
 // burger menu
 
 
@@ -85,7 +84,7 @@ const burger  = document.querySelector('.burger');
 
 burger.style.display = 'none';
 
-function backToMenu() {
+const backToMenu = () => {
     const menuItems = burger.parentElement.children;
     for (item of menuItems) {
         if (item.classList.contains('tool')) {
@@ -101,7 +100,7 @@ function backToMenu() {
 burger.addEventListener('click', backToMenu);
 
 
-function openTools(event) {
+const openTools = (event) => {
     const elNext = event.target.nextElementSibling;
     const elChildren = elNext.parentElement.children;
     if (event.target.classList.contains('new') === false) {
@@ -130,16 +129,16 @@ Array.from(summaryItems).forEach((item) => {
 
 // upload image to canvas
 
-const fileInput = document.querySelector('#fileInput');
-fileInput.addEventListener('change', onSelectFiles);
-
-function onSelectFiles(event) {
+const onSelectFiles = (event) => {
     const files = Array.from(event.target.files);
-
     updateFilesInfo(files);
 }
 
-function updateFilesInfo(files) {
+const fileInput = document.querySelector('#fileInput');
+fileInput.addEventListener('change', onSelectFiles);
+
+
+const updateFilesInfo = (files) => {
     const imageTypeRegExp = /^image\//;
     const filesInfo = document.querySelector('#filesInfo');
     const fragment = document.createDocumentFragment();
@@ -212,7 +211,7 @@ const drawLine = event => {
 
 const commentsDiv = document.querySelector('.chat-wrap');
 
-function switchCommentsMode() {
+const switchCommentsMode = () => {
     if (commentsDiv.dataset.state == 'comentingMode') {
         commentsDiv.style.display = 'block';
     }
@@ -221,7 +220,7 @@ function switchCommentsMode() {
     }
 }
 
-function addCommentsDataState(el) {
+const addCommentsDataState = (el) => {
     if (el.value == 'on') {
         commentsDiv.dataset.state = 'comentingMode';
         switchCommentsMode();
@@ -232,7 +231,7 @@ function addCommentsDataState(el) {
     }
 }
 
-function addDataState(el) {
+const addDataState = (el) => {
     if (el.hasAttribute('data-state')) {
         if (el.dataset.state.slice(0, 3) == 'not') {
             if (el.classList.contains('draw')) {
@@ -246,7 +245,7 @@ function addDataState(el) {
     }
 }
 
-function removeDrawingDataState(el) {
+const removeDrawingDataState = (el) => {
     const liEls = document.querySelectorAll('li');
     let arrayOfLiEls = [];
     for (li of liEls) {
@@ -262,14 +261,14 @@ function removeDrawingDataState(el) {
     } 
 }
 
-function turnOnDrawing() {
+const turnOnDrawing = () => {
     paintCanvas.addEventListener( 'mousedown', startDrawing );
     paintCanvas.addEventListener( 'mousemove', drawLine );
     paintCanvas.addEventListener( 'mouseup', stopDrawing );
     paintCanvas.addEventListener( 'mouseout', stopDrawing );
 }
 
-function turnOffDrawing() {
+const turnOffDrawing = () => {
     paintCanvas.removeEventListener( 'mousedown', startDrawing );
     paintCanvas.removeEventListener( 'mousemove', drawLine );
     paintCanvas.removeEventListener( 'mouseup', stopDrawing );
