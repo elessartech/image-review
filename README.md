@@ -2,7 +2,6 @@ Review Service App
 ===
 
 A work is still in progress, but if you already want to check this out, follow the instructions bellow:
-===
 
 ## Requirements
 
