@@ -177,7 +177,6 @@ const startDrawing = event => {
     isMouseDown = true;
     xy[0] = event.offsetX;
     xy[1] = event.offsetY;
-    console.log(xy);
 };
 
 const color = obj => {
@@ -216,12 +215,14 @@ const drawLine = event => {
     }
 };
 
-eraser.addEventListener('click', function(e) {
-	if (xy.length > 0) {
+const eraseCanvas = event => {
+    if (xy.length > 0) {
         xy.pop();
         context.clearRect(0, 0, paintCanvas.width, paintCanvas.height);
 	}
-});
+}
+
+eraser.addEventListener('click', eraseCanvas);
 
 
 
