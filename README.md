@@ -1,7 +1,7 @@
 Review Service App
 ===
 
-A work is still in progress, but if you already want to check this out, follow the instructions bellow:
+The app will be deployed soon, just a few steps left, but if you already want to check this out, follow the instructions bellow:
 
 ## Requirements
 

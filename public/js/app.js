@@ -125,8 +125,6 @@ Array.from(summaryItems).forEach((item) => {
    item.addEventListener('click', openTools);
 });
 
-
-
 // upload image to canvas
 
 const onSelectFiles = (event) => {
@@ -222,9 +220,14 @@ const eraseCanvas = event => {
 	}
 }
 
-eraser.addEventListener('click', eraseCanvas);
+// share tab
+const shareURL = document.querySelector('.menu__url');
+const btn = document.querySelector('.menu_copy');
 
-
+const attachToUrl = () => {
+    const documentURL = window.location.href;
+    shareURL.value = documentURL;
+}
 
 // switching modes and adding event listeners   
 
@@ -293,6 +296,11 @@ const turnOffDrawing = () => {
     paintCanvas.removeEventListener( 'mouseup', stopDrawing );
     paintCanvas.removeEventListener( 'mouseout', stopDrawing );
 }
+
+
+window.addEventListener('load', attachToUrl);
+eraser.addEventListener('click', eraseCanvas);
+
 
 
     
