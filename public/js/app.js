@@ -152,7 +152,7 @@ const updateFilesInfo = (files) => {
             img.addEventListener('load', event => {
                 canvas.setAttribute('width', event.target.width);
                 canvas.setAttribute('height', event.target.height);
-                ctx.drawImage(img, 0, 0);
+                canvas.style.backgroundImage = `url(${window.URL.createObjectURL(file)})`;
             });
             fragment.appendChild(canvas);
         }
@@ -164,16 +164,22 @@ const updateFilesInfo = (files) => {
 
 const paintCanvas = document.querySelector( 'canvas' );
 const context = paintCanvas.getContext( '2d' );
+const eraser = document.querySelector('.menu__eraser');
 
 let x = 0, y = 0;
+let xy = [x , y];
 let isMouseDown = false;
 let stringColor = '#6ebf44';
 
 const stopDrawing = () => { isMouseDown = false; };
+
 const startDrawing = event => {
     isMouseDown = true;
-    [x, y] = [event.offsetX, event.offsetY];
+    xy[0] = event.offsetX;
+    xy[1] = event.offsetY;
+    console.log(xy);
 };
+
 const color = obj => {
     switch (obj.value) {
         case "green":
@@ -193,21 +199,33 @@ const color = obj => {
             break;
     }
 };
+
 const drawLine = event => {
     if ( isMouseDown ) {
         const newX = event.offsetX;
         const newY = event.offsetY;
         context.beginPath();
-        context.moveTo( x, y );
+        context.moveTo( xy[0],xy[1] );
         context.lineTo( newX, newY );
         context.lineWidth = 7;
         context.lineCap = 'round';
         context.strokeStyle = stringColor;
         context.stroke();
         context.closePath();
-        [x, y] = [newX, newY];
+        xy = [newX, newY];
     }
 };
+
+eraser.addEventListener('click', function(e) {
+	if (xy.length > 0) {
+        xy.pop();
+        context.clearRect(0, 0, paintCanvas.width, paintCanvas.height);
+	}
+});
+
+
+
+// switching modes and adding event listeners   
 
 const commentsDiv = document.querySelector('.chat-wrap');
 
