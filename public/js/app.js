@@ -222,12 +222,17 @@ const eraseCanvas = event => {
 
 // share tab
 const shareURL = document.querySelector('.menu__url');
-const btn = document.querySelector('.menu_copy');
+const copyBtn = document.querySelector('.menu_copy');
 
 const attachToUrl = () => {
     const documentURL = window.location.href;
     shareURL.value = documentURL;
 }
+
+copyBtn.addEventListener('click', () => {
+    shareURL.select();
+    document.execCommand('copy');
+});
 
 // switching modes and adding event listeners   
 
