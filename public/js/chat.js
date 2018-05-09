@@ -1,5 +1,5 @@
 // make connection
-const socket = io.connect('http://localhost:5000');
+const socket = io.connect('https://image-review.herokuapp.com/');
 
 // query DOM
 const message = document.querySelector('#chat-comment-textarea'),
