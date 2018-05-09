@@ -1,11 +1,11 @@
 // make connection
-var socket = io.connect('http://localhost:3000');
+const socket = io.connect('http://localhost:5000');
 
 // query DOM
-var message = document.getElementById('chat-comment-textarea'),
-      handle = document.getElementById('chat-comment-handle'),
-      sendBtn = document.getElementById('send'),
-      output = document.getElementById('chat-messages');
+const message = document.querySelector('#chat-comment-textarea'),
+      handle = document.querySelector('#chat-comment-handle'),
+      sendBtn = document.querySelector('#send'),
+      output = document.querySelector('#chat-messages');
 
 // emit events
 sendBtn.addEventListener('click', function(){
