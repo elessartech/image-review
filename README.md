@@ -1,7 +1,8 @@
 Review Service App
 ===
+## Live Demo
 
-The app will be deployed soon, just a few steps left, but if you already want to check this out, follow the instructions bellow:
+https://image-review.herokuapp.com/
 
 ## Requirements
 
