@@ -1,6 +1,6 @@
 Review Service App
 ===
-## Live Demo
+## Live Demo (not available at the moment)
 
 https://image-review.herokuapp.com/
 
